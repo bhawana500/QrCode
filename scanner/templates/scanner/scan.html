@@ -1,0 +1,22 @@
+{% extends "core/base.html" %}
+{% block title %}Scan QR{% endblock title %}
+
+{% block content %}
+
+<div class='flex justify-center mt-8'>
+    <div class='px-24 py-14 border border-gray-200 bg-gray-100 rounded-sm shadow-sm content-center'>
+        <h1 class="font-bold px-2  text-center text-xl ">Scan QR Code</h1>
+        <form action="{% url 'scan_qr'%}" method='POST' enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="text" class="w-full py-1 border border-gray-300 rounded-sm text-sm mb-3 mt-4" name="mobile_number" placeholder='type your mobile number here' required pattern = "\d{10}"> </br>
+            <input class="w-full py-1 border border-gray-300 rounded-sm text-sm " type="file" name="qr_image" accept="image/*" id="qr-input">
+            <button type="submit" class="flex text-green-900 font-bold border border-green-300 bg-green-400 rounded-lg items-center px-4 py-1 mt-6 mx-24 hover:bg-green-500">Scan</button>
+            {% if result %}
+               <h1 class='text-xl text-blue-700'>{{result}}</h1>
+            {% endif %}
+        </form>
+    </div>
+</div>
+
+{% endblock content %}
+
