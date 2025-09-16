@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<body class='bg-gray-300'>
+    <div class='flex p-2 px-10 bg-gray-700 text-gray-100 text-sm gap-10 font-bold md:font-serif'>
+       <a href="{% url 'home'%}">Home</a>
+       <a href="{% url 'generate_qr'%}">Generate QR</a>
+       <a href="{% url 'scan_qr'%}">Scan QR</a>
+    </div>
+    <h1 class="main-heading flex justify-center text-2xl font-bold text-blue-900 mt-8 md:font-serif">GS Petrol Pump Payment</h1>
+    {% block content %}{% endblock content %}
+</body>
+</html>
